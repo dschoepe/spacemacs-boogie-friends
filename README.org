@@ -1,0 +1,45 @@
+#+TITLE: boogie-friends layer for spacemacs
+
+# TOC links should be GitHub style anchors.
+* Table of Contents                                        :TOC_4_gh:noexport:
+- [[#description][Description]]
+- [[#install][Install]]
+- [[#key-bindings][Key bindings]]
+
+* Description
+This is a layer for working with Dafny, Boogie, and Z3 files using the
+[[https://github.com/boogie-org/boogie-friends][boogie-friends]] package. It doesn't do much other than installing that package
+and setting up vim-friendly keybindings.
+
+* Install
+To use this configuration layer, first clone the repository to
+=~/.emacs.d/private=:
+
+#+begin_src sh
+cd $HOME/.emacs.d/private
+git clone https://github.com/dschoepe/spacemacs-boogie-friends
+#+end_src
+
+You then need to add =boogie-friends= to the existing
+=dotspacemacs-configuration-layers= list in =~/.spacemacs=.
+
+* Key bindings
+
+The following keybindings work in all modes (=dafny-mode=, =boogie-mode=, =z3-smt2-mode=)
+| Key Binding | Description                                       |
+|-------------+---------------------------------------------------|
+| ~SPC m v~   | Rerun file verification (=boogie-friends-verify=) |
+
+
+=dafny-mode= and =boogie-mode= only:
+| Key Binding | Description                                                                             |
+|-------------+-----------------------------------------------------------------------------------------|
+| ~SPC m t~   | Show verification trace (=boogie-friends-trace=)                                        |
+| ~SPC m p~   | Generate tracing profile for function and run profile analyzer (=boogie-friends-trace=) |
+
+=dafny-mode= only:
+| Key Binding | Description                                                        |
+|-------------+--------------------------------------------------------------------|
+| ~SPC m d~   | Show verification trace (=dafny-docs-open=)                        |
+| ~SPC m a~   | Show translation to boogie (=boogie-friends-translate=)            |
+| ~SPC m j~   | Jump to corresponding line in boogie file (=dafny-jump-to-boogie=) |
